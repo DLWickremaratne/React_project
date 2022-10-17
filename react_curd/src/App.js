@@ -1,11 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 function App({name}) {
 
   const [emotion, setEmotion]= useState("I'm happy"); //handle state variable
 
+
+  //useEffext - manage side effects
+  useEffect(() => {
+    return console.log({emotion});
+  }, [emotion]);
 
   return (
     <div className="App">
