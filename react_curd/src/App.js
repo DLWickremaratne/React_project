@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState , useEffect } from "react";
+import { useState , useEffect , useReducer} from "react";
 
 function App({name}) {
 
   const [emotion, setEmotion]= useState("happy"); //handle state variable
   const [second, secondEmotion] = useState("Exited");
+
+  //useReducer
+  const [checked, getchecked] =useReducer((checked) => !checked, false);
 
   //useEffect - manage side effects
 
@@ -32,11 +35,17 @@ function App({name}) {
         <button onClick={() => secondEmotion("GrateFull")}>GrateFull</button> 
 
         
-
-
-
-
       </header>
+
+      {/* form inputs */}
+      <body>
+        <input 
+        type= "checkbox"
+        value={checked}
+        onChange={getchecked}/>
+
+        <lable> {checked ? "Checked" : "Not Checked"}</lable>
+      </body>
     </div>
   );
 }
